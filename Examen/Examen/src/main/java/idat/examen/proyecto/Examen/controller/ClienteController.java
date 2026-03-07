@@ -31,11 +31,5 @@ public class ClienteController {
         return ResponseEntity.ok(clienteService.list());
     }
 
-/*
-    @GetMapping(value = "/saludo")
-    public String saludar() {
-        return "Hola grupo IDAT";
-    }
-*/
 
 }
