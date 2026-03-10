@@ -27,12 +27,12 @@ public class SolicitudRepository {
         return Optional.ofNullable(solicitudes.get(idSolicitud));
     }
 
-    public boolean delete(Integer idSolicitud) {
-        return solicitudes.remove(idSolicitud) != null;
-    }
-
     public Solicitud update(Solicitud solicitud) {
         solicitudes.put(solicitud.getIdSolicitud(), solicitud);
         return solicitud;
+    }
+
+    public void delete(Integer idSolicitud) {
+        solicitudes.remove(idSolicitud);
     }
 }

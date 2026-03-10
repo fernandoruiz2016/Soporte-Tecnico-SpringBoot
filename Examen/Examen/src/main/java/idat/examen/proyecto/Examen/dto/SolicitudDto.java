@@ -26,5 +26,6 @@ public class SolicitudDto {
     @PositiveOrZero(message = "El ID del técnico debe ser un número positivo")
     private Integer idTecnico;
 
-    private String estado = "Pendiente";
+    @Pattern(regexp = "Pendiente|En Proceso|Completado", message = "El estado debe ser: Pendiente, En Proceso o Completado")
+    private String estado;
 }
