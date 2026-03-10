@@ -26,4 +26,13 @@ public class ClienteRepository {
     public Optional<Cliente> search(Integer idCliente) {
         return Optional.ofNullable(clientes.get(idCliente));
     }
+
+    public Cliente update(Cliente cliente) {
+        clientes.put(cliente.getIdCliente(), cliente);
+        return cliente;
+    }
+
+    public void delete(Integer idCliente) {
+        clientes.remove(idCliente);
+    }
 }

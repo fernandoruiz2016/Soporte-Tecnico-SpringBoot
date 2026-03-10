@@ -31,5 +31,20 @@ public class ClienteController {
         return ResponseEntity.ok(clienteService.list());
     }
 
+    @PutMapping("/{idCliente}")
+    @Operation(summary = "Actualizar cliente",
+            description = "Permite actualizar un cliente existente")
+    public ResponseEntity<Cliente> update(@PathVariable Integer idCliente,
+                                          @Valid @RequestBody ClienteDto clienteDto) {
+        Cliente cliente = clienteService.update(idCliente, clienteDto);
+        return ResponseEntity.ok(cliente);
+    }
 
+    @DeleteMapping("/{idCliente}")
+    @Operation(summary = "Eliminar cliente",
+            description = "Permite eliminar un cliente por su id")
+    public ResponseEntity<Void> delete(@PathVariable Integer idCliente) {
+        clienteService.delete(idCliente);
+        return ResponseEntity.noContent().build();
+    }
 }

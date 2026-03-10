@@ -30,5 +30,24 @@ public class ClienteService {
         return clienteRepository.list();
     }
 
-}
+    public Cliente update(Integer idCliente, ClienteDto clienteDto) {
+        Cliente cliente = clienteRepository.search(idCliente)
+                .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
 
+        cliente.setDni(clienteDto.getDni());
+        cliente.setNombres(clienteDto.getNombres());
+        cliente.setApellidoPaterno(clienteDto.getApellidoPaterno());
+        cliente.setApellidoMaterno(clienteDto.getApellidoMaterno());
+        cliente.setEdad(clienteDto.getEdad());
+        cliente.setFechaRegistro(LocalDate.now());
+
+        return clienteRepository.update(cliente);
+    }
+
+    public void delete(Integer idCliente) {
+        clienteRepository.search(idCliente)
+                .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
+
+        clienteRepository.delete(idCliente);
+    }
+}
