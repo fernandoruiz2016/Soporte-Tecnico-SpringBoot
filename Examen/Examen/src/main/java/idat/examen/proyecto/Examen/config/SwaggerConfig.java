@@ -19,11 +19,11 @@ public class SwaggerConfig {
                         .contact(new Contact()
                                 .name("Grupo 6")
                                 .email("iv73370044@idat.pe")
-                                .url("http://eva.edu.pe/proyectos") // Corregido http:/
+                                .url("http://eva.edu.pe/proyectos")
                         )
                         .license(new License()
                                 .name("Proyectos IDAT")
-                                .url("http://proyectos.pe") // Corregido typo y http:/
+                                .url("http://proyectos.pe")
                         )
                 );
     }
