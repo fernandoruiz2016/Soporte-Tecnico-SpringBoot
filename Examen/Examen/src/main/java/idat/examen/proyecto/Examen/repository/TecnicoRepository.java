@@ -26,4 +26,13 @@ public class TecnicoRepository {
     public Optional<Tecnico> search(Integer idTecnico) {
         return Optional.ofNullable(tecnicos.get(idTecnico));
     }
+
+    public Tecnico update(Tecnico tecnico) {
+        tecnicos.put(tecnico.getIdTecnico(), tecnico);
+        return tecnico;
+    }
+
+    public void delete(Integer idTecnico) {
+        tecnicos.remove(idTecnico);
+    }
 }

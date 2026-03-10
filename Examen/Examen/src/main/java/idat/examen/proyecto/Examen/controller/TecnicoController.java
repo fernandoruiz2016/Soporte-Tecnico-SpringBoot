@@ -27,8 +27,27 @@ public class TecnicoController {
     }
 
     @GetMapping
+    @Operation(summary = "Listar tecnicos",
+            description = "Permite listar tecnicos existentes")
     public ResponseEntity<List<Tecnico>> list() {
         return ResponseEntity.ok(tecnicoService.list());
     }
 
+    @PutMapping("/{idTecnico}")
+    @Operation(summary = "Actualizar tecnico",
+            description = "Permite actualizar un tecnico existente")
+    public ResponseEntity<Tecnico> update(@PathVariable Integer idTecnico,
+                                          @Valid @RequestBody TecnicoDto tecnicoDto) {
+        Tecnico tecnico = tecnicoService.update(idTecnico, tecnicoDto);
+        return ResponseEntity.ok(tecnico);
+    }
+
+    @DeleteMapping("/{idTecnico}")
+    @Operation(summary = "Eliminar tecnico",
+            description = "Permite eliminar un tecnico por su id")
+    public ResponseEntity<Void> delete(@PathVariable Integer idTecnico) {
+        tecnicoService.delete(idTecnico);
+        return ResponseEntity.noContent().build();
+    }
 }
+

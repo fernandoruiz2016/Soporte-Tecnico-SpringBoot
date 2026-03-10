@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SwaggerConfig {
     @Bean
-    public OpenAPI soporteApiConfig() { // 1. Agregados paréntesis ()
+    public OpenAPI soporteApiConfig() {
         return new OpenAPI()
                 .info(new Info()
                         .title("Evaluación Parcial")
@@ -19,11 +19,11 @@ public class SwaggerConfig {
                         .contact(new Contact()
                                 .name("Grupo 6")
                                 .email("iv73370044@idat.pe")
-                                .url("http://eva.edu.pe/proyectos")
+                                .url("https://github.com/fernandoruiz2016/Soporte-Tecnico-SpringBoot")
                         )
                         .license(new License()
                                 .name("Proyectos IDAT")
-                                .url("http://proyectos.pe")
+                                .url("https://github.com/fernandoruiz2016/Soporte-Tecnico-SpringBoot")
                         )
                 );
     }

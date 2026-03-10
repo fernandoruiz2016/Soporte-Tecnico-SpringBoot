@@ -27,6 +27,8 @@ public class ClienteController {
     }
 
     @GetMapping
+    @Operation(summary = "Listar clientes",
+            description = "Permite listar clientes existentes")
     public ResponseEntity<List<Cliente>> list() {
         return ResponseEntity.ok(clienteService.list());
     }

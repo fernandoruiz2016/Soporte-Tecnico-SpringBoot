@@ -27,6 +27,8 @@ public class SolicitudController {
     }
 
     @GetMapping
+    @Operation(summary = "Listar solicitudes",
+            description = "Permite listar solicitudes existentes")
     public ResponseEntity<List<Solicitud>> list() {
         return ResponseEntity.ok(solicitudService.list());
     }

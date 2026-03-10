@@ -31,5 +31,25 @@ public class TecnicoService {
         return tecnicoRepository.list();
     }
 
+    public Tecnico update(Integer idTecnico, TecnicoDto tecnicoDto) {
+        Tecnico tecnico = tecnicoRepository.search(idTecnico)
+                .orElseThrow(() -> new RuntimeException("Tecnico no encontrado"));
+
+        tecnico.setDni(tecnicoDto.getDni());
+        tecnico.setNombres(tecnicoDto.getNombres());
+        tecnico.setApellidoPaterno(tecnicoDto.getApellidoPaterno());
+        tecnico.setApellidoMaterno(tecnicoDto.getApellidoMaterno());
+        tecnico.setEspecialidad(tecnicoDto.getEspecialidad());
+        tecnico.setEdad(tecnicoDto.getEdad());
+
+        return tecnicoRepository.update(tecnico);
+    }
+
+    public void delete(Integer idTecnico) {
+        tecnicoRepository.search(idTecnico)
+                .orElseThrow(() -> new RuntimeException("Tecnico no encontrado"));
+
+        tecnicoRepository.delete(idTecnico);
+    }
 }
 
